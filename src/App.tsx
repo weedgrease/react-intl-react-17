@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import type { ReactNode } from 'react';
 import './App.css';
+import {IntlProvider, FormattedMessage} from 'react-intl'
+
+function Subtitle({ children }: { children: ReactNode }) {
+  return <span>{children}</span>;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <IntlProvider locale="en">
+      <div className="App">
+        <h1>Hello CodeSandbox</h1>
+        <Subtitle>
+          <FormattedMessage
+            id="app.subtitle"
+            defaultMessage="Start editing to see some magic happen!"
+          />
+        </Subtitle>
+      </div>
+    </IntlProvider>
   );
 }
 
